@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Breed Searcher</string>
+    <string name="no_value">No value</string>
+    <string name="search">Search</string>
+    <string name="fav">Favourites</string>
+    <string name="add_fav">Add Breed to Favourites</string>
+</resources>

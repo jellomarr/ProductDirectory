@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "activities"
+		},
+		{
+			"path": "adapter"
+		},
+		{
+			"path": "fakedatabase"
+		},
+		{
+			"path": "fragments"
+		},
+		{
+			"path": "model"
+		}
+	]
+}
