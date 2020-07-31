@@ -5,16 +5,40 @@ public class ProductModel {
     private String product_name;
     private float price;
     private String image_url;
-    private int weight;
-    private int width;
+    private float weight;
+    private float width;
     private String feature;
-    private int height;
+    private float height;
     private String description;
     private String product_stores;
     private String product_departments;
     private String store_addresses;
     private String store_phone_numbers;
     private String department_phone_number;
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public void setWidth(float width) {
+        this.width = width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
 
     public int getProduct_id() {
         return product_id;
@@ -53,21 +77,6 @@ public class ProductModel {
         }
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
 
     public String getFeature() {
         return feature;
@@ -75,14 +84,6 @@ public class ProductModel {
 
     public void setFeature(String feature) {
         this.feature = feature;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public String getDescription() {

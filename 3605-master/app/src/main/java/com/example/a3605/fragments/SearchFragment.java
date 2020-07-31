@@ -47,13 +47,15 @@ public class SearchFragment extends Fragment {
     private static SearchView searchBar;
     @SuppressLint("StaticFieldLeak")
     private static Button searchButton;
+    @SuppressLint("StaticFieldLeak")
+    private static View v;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState) {
         //return inflater.inflate(R.layout.fragment_search_recycler, container, false);
-        View v = inflater.inflate(R.layout.fragment_search_recycler, container, false);
+        v = inflater.inflate(R.layout.fragment_search_recycler, container, false);
 
         departmentSpinner = v.findViewById(R.id.dep_spinner);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this.getContext(), R.array.department, android.R.layout.simple_spinner_item);
@@ -105,6 +107,7 @@ public class SearchFragment extends Fragment {
         String locationSearchTerm = "";
         String apiCallURL = "";
 
+
         if (!searchBar.getQuery().toString().isEmpty() && !departmentSpinner.getSelectedItem().toString().equals("No Selection") && !locationSpinner.getSelectedItem().toString().equals("No Selection")){
             System.out.println("product, department and location were selected");
 
@@ -117,7 +120,13 @@ public class SearchFragment extends Fragment {
             System.out.println(locationSpinner.getSelectedItem().toString().replace(" ", filledSpace));
             locationSearchTerm = locationSpinner.getSelectedItem().toString().replace(" ", filledSpace);
 
-            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproductanddepartmentandstores";
+            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproductanddepartmentandstores&productsearchterm=" + productSearchTerm + "&departmentsearchterm=" + departmentSearchTerm + "&storesearchterm=" + locationSearchTerm;
+
+            apiCALL(apiCallURL, v);
+
+
+
+
 
 
         }
@@ -130,7 +139,9 @@ public class SearchFragment extends Fragment {
             System.out.println(departmentSpinner.getSelectedItem().toString().replace(" ", filledSpace));
             departmentSearchTerm = departmentSpinner.getSelectedItem().toString().replace(" ", filledSpace);
 
-            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproductanddepartment";
+            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproductanddepartment&productsearchterm=" + productSearchTerm + "&departmentsearchterm=" + departmentSearchTerm;
+
+            apiCALL(apiCallURL, v);
 
         }
         else if (!searchBar.getQuery().toString().isEmpty() && !locationSpinner.getSelectedItem().toString().equals("No Selection") && departmentSpinner.getSelectedItem().toString().equals("No Selection")){
@@ -142,7 +153,9 @@ public class SearchFragment extends Fragment {
             System.out.println(locationSpinner.getSelectedItem().toString().replace(" ", filledSpace));
             locationSearchTerm = locationSpinner.getSelectedItem().toString().replace(" ", filledSpace);
 
-            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproductandstores";
+            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproductandstores&productsearchterm=" + productSearchTerm + "&storesearchterm=" + locationSearchTerm;
+
+            apiCALL(apiCallURL, v);
 
 
         }
@@ -155,7 +168,8 @@ public class SearchFragment extends Fragment {
             System.out.println(locationSpinner.getSelectedItem().toString().replace(" ", filledSpace));
             locationSearchTerm = locationSpinner.getSelectedItem().toString().replace(" ", filledSpace);
 
-            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingdepartmentandstores";
+            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingdepartmentandstores&departmentsearchterm=" + departmentSearchTerm + "&storesearchterm=" + locationSearchTerm;
+            apiCALL(apiCallURL, v);
 
         }
         else if (!searchBar.getQuery().toString().isEmpty() && departmentSpinner.getSelectedItem().toString().equals("No Selection") && locationSpinner.getSelectedItem().toString().equals("No Selection")){
@@ -164,7 +178,9 @@ public class SearchFragment extends Fragment {
             System.out.println(searchBar.getQuery().toString().replace(" ", filledSpace));
             productSearchTerm = searchBar.getQuery().toString().replace(" ", filledSpace);
 
-            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproduct";
+            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproduct&productsearchterm=" + productSearchTerm;
+
+            apiCALL(apiCallURL, v);
 
         }
         else if (!departmentSpinner.getSelectedItem().toString().equals("No Selection") && locationSpinner.getSelectedItem().toString().equals("No Selection") && searchBar.getQuery().toString().isEmpty()){
@@ -172,7 +188,9 @@ public class SearchFragment extends Fragment {
             System.out.println(departmentSpinner.getSelectedItem().toString().replace(" ", filledSpace));
             departmentSearchTerm = departmentSpinner.getSelectedItem().toString().replace(" ", filledSpace);
 
-            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingdepartment";
+            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingdepartment&departmentsearchterm=" + departmentSearchTerm;
+
+            apiCALL(apiCallURL, v);
 
         }
         else if (!locationSpinner.getSelectedItem().toString().equals("No Selection") && departmentSpinner.getSelectedItem().toString().equals("No Selection") && searchBar.getQuery().toString().isEmpty()){
@@ -180,13 +198,14 @@ public class SearchFragment extends Fragment {
             System.out.println(locationSpinner.getSelectedItem().toString().replace(" ", filledSpace));
             locationSearchTerm = locationSpinner.getSelectedItem().toString().replace(" ", filledSpace);
 
-            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingstores";
+            apiCallURL = "http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingstores&storesearchterm=" + locationSearchTerm;
+            apiCALL(apiCallURL, v);
 
         }
 
     }
 
-    private void apiCALL(String url, final View view){
+    private static void apiCALL(String url, final View view){
         //here format strings with spaces with "%" if needed
         RequestQueue  mRequestQueue = Volley.newRequestQueue(view.getContext());
 
@@ -194,8 +213,8 @@ public class SearchFragment extends Fragment {
             @Override
             //"response" is basically the string that contains the json data
             public void onResponse(String response) {
-                System.out.println("Thing works");
-                System.out.println("Adapter has been set");
+                System.out.println("There is a response");
+                System.out.println(response);
 
                 RecyclerView recyclerView = view.findViewById(R.id.rv_main);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
@@ -205,15 +224,24 @@ public class SearchFragment extends Fragment {
 
                 ApiResponseModel apiResponse = gson.fromJson(response, ApiResponseModel.class);
 
-                ProductHolder.saveProductsToHolder(apiResponse.getProducts());
-
-                ProductSearchAdapter productSearchAdapter = new ProductSearchAdapter();
-
-                productSearchAdapter.setData(ProductHolder.getProducts());
-
-                recyclerView.setAdapter(productSearchAdapter);
-
                 System.out.println(apiResponse.getProducts());
+
+                if (apiResponse.isError()){
+                    System.out.println("Big man");
+                }else{
+                    ProductSearchAdapter productSearchAdapter = new ProductSearchAdapter();
+
+                    productSearchAdapter.setData(apiResponse.getProducts());
+
+                    recyclerView.setAdapter(productSearchAdapter);
+                }
+
+
+
+
+
+
+
 
             }
         };
@@ -222,6 +250,7 @@ public class SearchFragment extends Fragment {
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                System.out.println(error);
                 System.out.println("Failed");
             }
         };
