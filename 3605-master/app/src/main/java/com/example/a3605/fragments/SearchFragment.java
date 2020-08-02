@@ -1,19 +1,20 @@
 package com.example.a3605.fragments;
 
 import android.annotation.SuppressLint;
-import android.app.DownloadManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -28,13 +29,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.a3605.R;
 
+import com.example.a3605.activities.SearchDetailActivity;
 import com.example.a3605.adapter.ProductSearchAdapter;
-import com.example.a3605.fakedatabase.ProductHolder;
 import com.example.a3605.model.ApiResponseModel;
-import com.example.a3605.model.ProductModel;
 import com.google.gson.Gson;
-
-import java.util.List;
 
 
 public class SearchFragment extends Fragment {
@@ -228,6 +226,12 @@ public class SearchFragment extends Fragment {
 
                 if (apiResponse.isError()){
                     System.out.println("Big man");
+                    Toast toast = Toast.makeText(view.getContext(),"There are no products listed under this category",Toast.LENGTH_LONG);
+                    View view = toast.getView();
+                    TextView text = (TextView) view.findViewById(android.R.id.message);
+                    text.setTextSize(25);
+                    toast.show();
+
                 }else{
                     ProductSearchAdapter productSearchAdapter = new ProductSearchAdapter();
 
@@ -236,24 +240,21 @@ public class SearchFragment extends Fragment {
                     recyclerView.setAdapter(productSearchAdapter);
                 }
 
-
-
-
-
-
-
-
             }
         };
 
         //operates if there is an error or simply no responses
         Response.ErrorListener errorListener = new Response.ErrorListener() {
+
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println(error);
                 System.out.println("Failed");
             }
+
+
         };
+
 
 
         //asks for a string from the address contained in the "url" string via the GET method, using the the last two arguments to state the types of listeners to use if there is a response and if there is not.
@@ -262,10 +263,6 @@ public class SearchFragment extends Fragment {
         //adds previous request to the mRequestQueue.
         mRequestQueue.add(stringRequest);
     }
-
-
-
-
 
 
 }
