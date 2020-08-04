@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private  Spinner locationSpinner;
     private SearchView searchBar;
     private Button searchButton;
+    private final ProductSearchAdapter productSearchAdapter = new ProductSearchAdapter();
 
 
     @Override
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public  void checkWhatIsSelected(){
+    public void checkWhatIsSelected(){
 
         String filledSpace = "%20";
         String productSearchTerm = "";
@@ -185,8 +186,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private  void apiCALL(String url){
-        //here format strings with spaces with "%" if needed
+
         RequestQueue mRequestQueue = Volley.newRequestQueue(MainActivity.this);
+
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -206,19 +208,19 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(apiResponse.getProducts());
 
                 if (apiResponse.isError()){
-                    System.out.println("Big man");
-                    Toast toast = Toast.makeText(MainActivity.this,"There are no products listed under this category",Toast.LENGTH_LONG);
+                    System.out.println(productSearchAdapter.getProductsToAdapt());
+                    productSearchAdapter.getProductsToAdapt().clear();
+                    productSearchAdapter.notifyDataSetChanged();
+                    System.out.println("No ting found");
+                    Toast toast = Toast.makeText(MainActivity.this,"There are no products listed under these filters.",Toast.LENGTH_LONG);
                     View view = toast.getView();
                     TextView text = (TextView) view.findViewById(android.R.id.message);
                     text.setTextSize(25);
                     toast.show();
-
                 }else{
-                    ProductSearchAdapter productSearchAdapter = new ProductSearchAdapter();
-
                     productSearchAdapter.setData(apiResponse.getProducts());
-
                     recyclerView.setAdapter(productSearchAdapter);
+                    System.out.println(productSearchAdapter.getProductsToAdapt());
                 }
 
             }
