@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,9 +30,13 @@ import com.google.gson.Gson;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner departmentSpinner;
-    private  Spinner locationSpinner;
+    private Spinner locationSpinner;
     private SearchView searchBar;
     private Button searchButton;
+    private ImageView banner;
+    private ImageView background;
+    private ImageView quote;
+    private TextView intro;
     private final ProductSearchAdapter productSearchAdapter = new ProductSearchAdapter();
 
 
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        searchBar =findViewById(R.id.search_bar);
+        searchBar = findViewById(R.id.search_bar);
 
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -181,10 +186,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private  void apiCALL(String url){
+    private void clearPromo(){
+
+        banner = findViewById(R.id.banner);
+        background = findViewById(R.id.background);
+        quote = findViewById(R.id.quote);
+        intro = findViewById(R.id.intro);
+
+        banner.setVisibility(View.GONE);
+        background.setVisibility(View.GONE);
+        quote.setVisibility(View.GONE);
+        intro.setVisibility(View.GONE);
+
+
+    }
+
+    private void apiCALL(String url){
+
+        clearPromo();
 
         RequestQueue mRequestQueue = Volley.newRequestQueue(MainActivity.this);
-
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -205,8 +226,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if (apiResponse.isError()){
                     System.out.println(productSearchAdapter.getProductsToAdapt());
-                    productSearchAdapter.getProductsToAdapt().clear();
-                    productSearchAdapter.notifyDataSetChanged();
+
+                    if (productSearchAdapter.getProductsToAdapt() != null){
+                        productSearchAdapter.getProductsToAdapt().clear();
+                        productSearchAdapter.notifyDataSetChanged();
+                    }
+
                     System.out.println("No ting found");
                     Toast toast = Toast.makeText(MainActivity.this,"There are no products listed under these filters.",Toast.LENGTH_LONG);
                     View view = toast.getView();
