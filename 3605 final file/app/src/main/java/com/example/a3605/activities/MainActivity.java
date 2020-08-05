@@ -105,10 +105,6 @@ public class MainActivity extends AppCompatActivity {
             apiCALL(apiCallURL);
 
 
-
-
-
-
         }
         else if (!searchBar.getQuery().toString().isEmpty() && !departmentSpinner.getSelectedItem().toString().equals("No Selection") && locationSpinner.getSelectedItem().toString().equals("No Selection")){
             System.out.println("product and department selected");
