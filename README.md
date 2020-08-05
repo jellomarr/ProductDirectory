@@ -85,5 +85,5 @@ until finished
 ## Acknowledgments
 
 * Special thanks to Hardware & General for giving us this opportunity.
-* Thank you to Yenni Tim and Sandeep Mysore Seshadrinath for their guidence thoughout the project
+* Thank you to Yenni Tim and Sandeep Mysore Seshadrinath for their guidence thoughout the project.
 * Thank you to Belal Khan at www.simplifiedcoding.net for providing the starter code for the PHP API
