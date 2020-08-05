@@ -64,7 +64,7 @@ And repeat
 until finished
 ```
 
-4. Put your URL into a JSON view such as the one at https://codebeautify.org/jsonviewer.
+4. Put your URL into a JSON viewer such as the one at https://codebeautify.org/jsonviewer.
 
 
 ## Built With
