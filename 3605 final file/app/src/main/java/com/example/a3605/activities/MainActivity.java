@@ -27,6 +27,8 @@ import com.example.a3605.model.ApiResponseModel;
 import com.example.a3605.R;
 import com.google.gson.Gson;
 
+// This class is based on the BreedSearcherHomework3Final project, with the addition of the apiCall, checkWhatIsSelected and clearPromo classes.
+
 public class MainActivity extends AppCompatActivity {
 
     private Spinner departmentSpinner;
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    //will check which parameters are inputted and searched for.
     public void checkWhatIsSelected(){
 
         String filledSpace = "%20";
@@ -186,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    //clears the promo images that occur at the beginning.
     private void clearPromo(){
 
         banner = findViewById(R.id.banner);
@@ -197,10 +201,9 @@ public class MainActivity extends AppCompatActivity {
         background.setVisibility(View.GONE);
         quote.setVisibility(View.GONE);
         intro.setVisibility(View.GONE);
-
-
     }
 
+    //This deals with pulling data from the database and uses the relevant API call.
     private void apiCALL(String url){
 
         clearPromo();
@@ -214,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("There is a response");
                 System.out.println(response);
 
-                RecyclerView recyclerView =findViewById(R.id.rv_main);
+                RecyclerView recyclerView = findViewById(R.id.rv_main);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
                 recyclerView.setLayoutManager(layoutManager);
 
@@ -227,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
                 if (apiResponse.isError()){
                     System.out.println(productSearchAdapter.getProductsToAdapt());
 
+                    //This if statement deals with the case where the case where the very first search by the user returns nothing.
                     if (productSearchAdapter.getProductsToAdapt() != null){
                         productSearchAdapter.getProductsToAdapt().clear();
                         productSearchAdapter.notifyDataSetChanged();

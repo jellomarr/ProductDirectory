@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 29, 2020 at 04:25 PM
+-- Generation Time: Aug 05, 2020 at 09:22 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.12
 
@@ -43,16 +43,16 @@ INSERT INTO `Department` (`department_id`, `department_name`) VALUES
 (3, 'Clothing'),
 (4, 'Concretors'),
 (5, 'Fencing'),
-(6, 'Gutter & Roofing'),
+(6, 'Gutter and Roofing'),
 (7, 'Hot Water'),
 (8, 'Industrial Supplies'),
 (9, 'Lighting'),
-(10, 'Lock & Doors'),
+(10, 'Lock and Doors'),
 (11, 'Plumbing Supplies'),
 (12, 'RDC'),
-(13, 'Print & Hardware'),
+(13, 'Print and Hardware'),
 (14, 'Sheet Materials'),
-(15, 'Sinks, Tubs & Laundry'),
+(15, 'Sinks, Tubs and Laundry'),
 (16, 'Tap'),
 (17, 'Timber Supplies '),
 (18, 'Tanks'),
@@ -172,7 +172,7 @@ INSERT INTO `Location_Department` (`store_id_fk`, `department_id_fk`, `departmen
 
 CREATE TABLE `Products` (
   `product_id` bigint(20) UNSIGNED NOT NULL COMMENT 'primary key',
-  `product_name` text NOT NULL,
+  `product_name` text CHARACTER SET utf8 NOT NULL,
   `price` float NOT NULL,
   `image_url` text DEFAULT NULL COMMENT 'image''s url',
   `weight` float NOT NULL,

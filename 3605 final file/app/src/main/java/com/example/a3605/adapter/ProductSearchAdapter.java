@@ -1,5 +1,7 @@
 package com.example.a3605.adapter;
 
+//This class is based on the BreedSearcherHomework3Final project
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;

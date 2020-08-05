@@ -1,5 +1,13 @@
 <?php
  
+     /*
+	* Based on code from Belal Khan
+	* website: www.simplifiedcoding.net 
+	https://www.simplifiedcoding.net/android-mysql-tutorial-to-perform-basic-crud-operation/
+	
+	This mostly uses Khan's code, the things that have changed are that all the SQL queries relate the current database.
+	*/
+	
 class DbOperation
 {
     //Database connection link
@@ -20,18 +28,6 @@ class DbOperation
         $this->con = $db->connect();
 	}
 	
-	
-	/*
-	* written for ease of coding the major SQL query
-	*/
-	function majorSQLQuery($conditionals){
-		$majorSqlQuery = "SELECT Products.product_id, Products.product_name, Products.product_name, Products.price, Products.image_url, Products.weight, Products.width, Products.height, Products.feature, Products.description, GROUP_CONCAT(DISTINCT Store.store_name) as \"product_stores\", GROUP_CONCAT(DISTINCT Department.department_name) as \"product_departments\", GROUP_CONCAT(DISTINCT CONCAT_WS(\" \", Store.street_address, Store.postcode, Store.suburb, Store.State)) as \"store_address/es\", GROUP_CONCAT(DISTINCT Store.phone_number) as \"store_phone_number/s\", Department_Phone_Number.department_phone_number FROM Products LEFT JOIN Product_Department ON Products.product_id = Product_Department.product_id LEFT JOIN Department ON Product_Department.department_id = Department.department_id LEFT JOIN Location_Department ON Department.department_id = Location_Department.department_id_fk LEFT JOIN Department_Phone_Number ON Location_Department.department_phone_number_fk = Department_Phone_Number.department_phone_number_id LEFT JOIN Store ON Location_Department.store_id_fk = Store.store_id GROUP BY Products.product_id" ;
-
-		$majorSqlQuery = $majorSqlQuery + " " + $conditionals + " GROUP BY Products.product_id";
-        
-		return $majorSqlQuery;
-
-	}
 	
 	/*
 	* The read operation for getting all the departments in HnG
@@ -107,7 +103,7 @@ class DbOperation
 
 	/*
 	* The getProductsKnowingKeywords all good
-	* When this method is called the record with the given id is updated with the new given values
+	* 
 	*/
    
 

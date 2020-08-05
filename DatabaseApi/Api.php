@@ -5,7 +5,7 @@
 	* website: www.simplifiedcoding.net 
 	https://www.simplifiedcoding.net/android-mysql-tutorial-to-perform-basic-crud-operation/
 	
-	Hans Magnaye: I have mostly used Khan's code, the only thing that I have changed is the switch statements from lines 48-? to reflect the methods that are contained in DbOperation.php
+	This mostly uses Khan's code, the only thing that has changed is the switch statements from lines 48- 217 to reflect the methods that are contained in DbOperation.php, which are all READ operations, as well as relevant error messages.
 	*/
 
 	//getting the dboperation class
@@ -49,8 +49,8 @@
 		
 		switch($_GET['apicall']){
 			
-			//the READ operation
-			//if the call is getheroes
+			//The following case statements are all READ operations.
+		
 			case 'getdepartment':
 				$db = new DbOperation();
 				$response['departments'] = $db->getDepartments();
@@ -68,22 +68,23 @@
 
 			break;
 			
+			//The following case statement is the basis of all the other case statements, with the only difference being the different methods used from DbOperation() and different status messages.
 			case 'getproductsknowingproduct':
 				$db = new DbOperation();
-
+				// Checks if the parameter productsearchterm is set in the URL.
 				if(isset($_GET['productsearchterm'])){
 					$db = new DbOperation();
 					if($db->getProductsKnowingProducts($_GET['productsearchterm'])){
 						$response['products'] = $db->getProductsKnowingProducts($_GET['productsearchterm']);
 						$response['error'] = false; 
-						$response['message'] = 'product pulled successfully';
+						$response['message'] = 'products pulled successfully';
 					}else{
 						$response['error'] = true; 
-						$response['message'] = 'Some error occurred please try again';
+						$response['message'] = 'products not pulled successfully';
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide an product';
+					$response['message'] = 'No products pulled, please provide an product';
 				}
 
 			break; 
@@ -96,14 +97,14 @@
 					if($db->getProductsKnowingDepartment($_GET['departmentsearchterm'])){
 						$response['products'] = $db->getProductsKnowingDepartment($_GET['departmentsearchterm']);
 						$response['error'] = false; 
-						$response['message'] = 'product pulled successfully';
+						$response['message'] = 'products pulled successfully';
 					}else{
 						$response['error'] = true; 
-						$response['message'] = 'Some error occurred please try again';
+						$response['message'] = 'products not pulled successfully';
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide an product';
+					$response['message'] = 'No products pulled, please provide an department';
 				}
 
 			break; 
@@ -115,14 +116,14 @@
 					if($db->getProductsKnowingStore($_GET['storesearchterm'])){
 						$response['products'] = $db->getProductsKnowingStore($_GET['storesearchterm']);
 						$response['error'] = false; 
-						$response['message'] = 'product pulled successfully';
+						$response['message'] = 'products pulled successfully';
 					}else{
 						$response['error'] = true; 
-						$response['message'] = 'Some error occurred please try again';
+						$response['message'] = 'products not pulled successfully';
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide an product';
+					$response['message'] = 'No products pulled, please provide an store location.';
 				}
 
 				
@@ -136,16 +137,16 @@
 				if (isset($_GET['productsearchterm']) and isset($_GET['departmentsearchterm'])) {
 					$db = new DbOperation();
 					if($db->getProductsKnowingProductAndDepartment($_GET['productsearchterm'], $_GET['departmentsearchterm'])){
-						$response['product'] =$db->getProductsKnowingProductAndDepartment($_GET['productsearchterm'], $_GET['departmentsearchterm']);
-						$response['message'] = 'product pulled successfully';
+						$response['products'] =$db->getProductsKnowingProductAndDepartment($_GET['productsearchterm'], $_GET['departmentsearchterm']);
+						$response['message'] = 'products pulled successfully';
 						$response['error'] = false; 
 					}else{
 						$response['error'] = true; 
-						$response['message'] = 'Some error occurred please try again';
+						$response['message'] = 'products not pulled successfully';
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide an product';
+					$response['message'] = 'No products pulled, please provide an store location and department';
 				}
 
 			break; 
@@ -158,16 +159,16 @@
 				if (isset($_GET['productsearchterm']) and isset($_GET['storesearchterm'])) {
 					$db = new DbOperation();
 					if($db->getProductsKnowingProductsAndStore($_GET['productsearchterm'], $_GET['storesearchterm'])){
-						$response['product'] = $db->getProductsKnowingProductsAndStore($_GET['productsearchterm'], $_GET['storesearchterm']);
-						$response['message'] = 'product pulled successfully';
+						$response['products'] = $db->getProductsKnowingProductsAndStore($_GET['productsearchterm'], $_GET['storesearchterm']);
+						$response['message'] = 'products pulled successfully';
 						$response['error'] = false; 
 					}else{
 						$response['error'] = true; 
-						$response['message'] = 'Some error occurred please try again';
+						$response['message'] = 'products not pulled successfully';
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide an product';
+					$response['message'] = 'No products pulled, please provide an product and store location';
 				}
 
 			break; 
@@ -180,14 +181,14 @@
 					if($db->getProductsKnowingStoreAndDepartment($_GET['storesearchterm'],$_GET['departmentsearchterm'])){
 					    $response['products'] = $db->getProductsKnowingStoreAndDepartment($_GET['storesearchterm'],$_GET['departmentsearchterm']);
 						$response['error'] = false; 
-						$response['message'] = 'product pulled successfully';
+						$response['message'] = 'products pulled successfully';
 					}else{
 						$response['error'] = true; 
-						$response['message'] = 'Some error occurred please try again';
+						$response['message'] = 'products not pulled successfully';
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide an product';
+					$response['message'] = 'No products pulled, please provide an department and store location';
 				}
 
 			break;
@@ -201,14 +202,14 @@
 					if($db->getProductsKnowingStoreAndDepartmentAndProducts($_GET['productsearchterm'], $_GET['storesearchterm'], $_GET['departmentsearchterm'])){
 						$response['products'] = $db->getProductsKnowingStoreAndDepartmentAndProducts( $_GET['productsearchterm'], $_GET['storesearchterm'], $_GET['departmentsearchterm']);
 						$response['error'] = false; 
-						$response['message'] = 'product pulled successfully';
+						$response['message'] = 'products pulled successfully';
 					}else{
 						$response['error'] = true; 
-						$response['message'] = 'Some error occurred please try again';
+						$response['message'] = 'products not pulled successfully';
 					}
 				}else{
 					$response['error'] = true; 
-					$response['message'] = 'Nothing to delete, provide an product';
+					$response['message'] = 'No products pulled, please provide an product name, department and store location';
 				}
 
 			break; 
