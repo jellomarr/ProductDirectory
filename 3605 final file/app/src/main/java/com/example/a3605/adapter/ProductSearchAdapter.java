@@ -26,6 +26,10 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
 
     }
 
+    public List<ProductModel> getProductsToAdapt() {
+        return productsToAdapt;
+    }
+
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -56,6 +60,7 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
     public int getItemCount() {
         return productsToAdapt.size();
     }
+
 
     public class ProductViewHolder extends RecyclerView.ViewHolder{
         public View view;
