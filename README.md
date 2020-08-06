@@ -2,7 +2,7 @@
 
 The following files and folders contain everything that makes up the Hardware & General Product Directory, created as part of the assessment requirements of INFS3605, the capstone course of Information Systems at the University of New South Wales. The files within this project include;
 
-* .apk - which allows people to run the app on any Android device.
+* app-debug.apk - which allows people to run the app on any Android device.
 * 3605-final - This contains the source code for the Android app written in Java
 * API files - This contains the files that make up the API, which was written in PHP, which are hosted on http://group5hngdatabase.000webhostapp.com.
 * SQL dump - This contains the SQL dump of the MySQL database that is hosted on http://group5hngdatabase.000webhostapp.com.
@@ -58,11 +58,6 @@ http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingpro
 http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingproductanddepartment&productsearchterm=Ever&departmentsearchterm=Concretors
 ```
 
-And repeat
-
-```
-until finished
-```
 
 4. Put your URL into a JSON viewer such as the one at https://codebeautify.org/jsonviewer.
 
@@ -75,11 +70,11 @@ until finished
 
 ## Contributers for this project
 
-* **Hans Magnaye** - [jellomarr](https://github.com/jellomarr)
-* **Leanne Tran** - [jellomarr](https://github.com/jellomarr)
-* **Wei (William) Quan** - [jellomarr](https://github.com/jellomarr)
-* **Sylvia Huang** - [jellomarr](https://github.com/jellomarr)
-* **Kenzo Jeanson** - [jellomarr](https://github.com/jellomarr)
+* **Hans Magnaye** 
+* **Leanne Tran** 
+* **Wei (William) Quan** 
+* **Sylvia Huang** 
+* **Kenzo Jeanson** 
 
 
 ## Acknowledgments
