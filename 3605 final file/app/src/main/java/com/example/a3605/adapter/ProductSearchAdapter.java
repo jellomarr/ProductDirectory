@@ -1,6 +1,6 @@
 package com.example.a3605.adapter;
 
-//This class is based on the BreedSearcherHomework3Final project
+//This class is based on the BreedSearcherHomework3Final project's BreedSearchAdapter.java class. I have changed the class in term of the API.
 
 import android.content.Context;
 import android.content.Intent;

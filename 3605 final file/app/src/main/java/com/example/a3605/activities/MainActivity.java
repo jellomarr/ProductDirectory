@@ -27,7 +27,7 @@ import com.example.a3605.model.ApiResponseModel;
 import com.example.a3605.R;
 import com.google.gson.Gson;
 
-// This class is based on the BreedSearcherHomework3Final project, with the addition of the apiCall, checkWhatIsSelected and clearPromo classes.
+// This class is based on the BreedSearcherHomework3Final project's MainActivity.java, with the addition of the apiCall, checkWhatIsSelected and clearPromo classes.
 
 public class MainActivity extends AppCompatActivity {
 
