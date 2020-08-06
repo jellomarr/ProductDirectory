@@ -2,7 +2,6 @@
 
 The following files and folders contain everything that makes up the Hardware & General Product Directory, created as part of the assessment requirements of INFS3605, the capstone course of Information Systems at the University of New South Wales. The files within this project include;
 
-* app-debug.apk - which allows people to run the app on any Android device.
 * 3605-final - This contains the source code for the Android app written in Java
 * API files - This contains the files that make up the API, which was written in PHP, which are hosted on http://group5hngdatabase.000webhostapp.com.
 * SQL dump - This contains the SQL dump of the MySQL database that is hosted on http://group5hngdatabase.000webhostapp.com.
@@ -29,8 +28,9 @@ For running the Android Application on Android Studio:
 
 For running the Android Application on an Android device:
 
-1. Use the .apk file to run the app on an Android device.
-2. Follow the instructions within this link - https://www.lifewire.com/install-apk-on-android-4177185.
+1. Open the 3605-final file in Android Studio.
+2. Follow the instructions within this link to build a APK file in Android Studio - https://www.educative.io/edpresso/extracting-an-apk-file-from-android-studio.
+3. Follow the instructions within this link to put the APK on an Android device - https://www.lifewire.com/install-apk-on-android-4177185.
 
 
 For Testing the API:
