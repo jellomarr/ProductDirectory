@@ -19,6 +19,8 @@ import com.example.a3605.model.ProductModel;
 import com.example.a3605.activities.SearchDetailActivity;
 import java.util.List;
 
+//This class is based on the BreedSearcherHomework3Final (https://github.com/jellomarr/BreedSearcherHomework3FinalCopy) project's BreedDetailActivity.java class. The difference with this Adapter is that this class in term of the products from HnG.
+
 public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdapter.ProductViewHolder>{
 
     private List<ProductModel> productsToAdapt;

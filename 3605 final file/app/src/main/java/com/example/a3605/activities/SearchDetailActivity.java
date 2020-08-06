@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.a3605.R;
 import com.example.a3605.model.ProductModel;
 
-//This class is based on the BreedSearcherHomework3Final project's BreedDetailActivity.java class. I have changed the class in term of the products.
+//This class is based on the BreedSearcherHomework3Final (https://github.com/jellomarr/BreedSearcherHomework3FinalCopy) project's BreedDetailActivity.java class. The difference with this Activity is that this class in term of the products from HnG.
 
 public class SearchDetailActivity extends AppCompatActivity {
 

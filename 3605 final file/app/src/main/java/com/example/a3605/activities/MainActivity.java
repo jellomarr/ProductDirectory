@@ -27,7 +27,7 @@ import com.example.a3605.model.ApiResponseModel;
 import com.example.a3605.R;
 import com.google.gson.Gson;
 
-// This class is based on the BreedSearcherHomework3Final project's MainActivity.java, with the addition of the apiCall, checkWhatIsSelected and clearPromo classes.
+// This class is based on the BreedSearcherHomework3Final's (https://github.com/jellomarr/BreedSearcherHomework3FinalCopy) project's MainActivity.java, with the addition of the apiCall, checkWhatIsSelected and clearPromo classes.
 
 public class MainActivity extends AppCompatActivity {
 
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //clears the promo images that occur at the beginning.
+    //clears the promo images that appear at the beginning.
     private void clearPromo(){
 
         banner = findViewById(R.id.banner);

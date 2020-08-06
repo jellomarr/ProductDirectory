@@ -5,7 +5,7 @@
 	* website: www.simplifiedcoding.net 
 	https://www.simplifiedcoding.net/android-mysql-tutorial-to-perform-basic-crud-operation/
 	
-	Hans Magnaye: I have used the same code as Khan, except for changing the directory path in line 27.
+	The following code the same as Khan's, except for changing the directory path in line 27.
 	*/
 	
 	//Class DbConnect
