@@ -2,7 +2,7 @@
 
 The following files and folders contain everything that makes up the Hardware & General Product Directory, created as part of the assessment requirements of INFS3605, the capstone course of Information Systems at the University of New South Wales. The files within this project include;
 
-* 3605-final - This contains the source code for the Android app written in Java
+* 3605-final - This contains the source code for the Android app written in Java. <b> This application has been optimised for the Pixel 2, API 29. </b>
 * API files - This contains the files that make up the API, which was written in PHP, which are hosted on http://group5hngdatabase.000webhostapp.com.
 * SQL dump - This contains the SQL dump of the MySQL database that is hosted on http://group5hngdatabase.000webhostapp.com.
 
@@ -16,24 +16,22 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Android Studio
 * Web Browser
-* (Only if you desire to run the mySQL and API PHP on a local machine) LAMP stack such as MAMP
 
 ### Installing and running relevant files
 
-For running the Android Application on Android Studio:
+</b>For running the Android Application on Android Studio:</b>
 
 1. Open the Android File as a project on Android Studio.
-2. Ensure that on Android Studio that you have installed a AVD. This application has been optimised for Pixel 2, API 29.
+2. Ensure that on Android Studio that you have installed a AVD. <b> This application has been optimised for the Pixel 2, API 29. For best performance, please run this app using a  Pixel 2, API 29 AVD.</b>
 3. Press the play button or type "^R".
 
-For running the Android Application on an Android device:
+<b>For running the Android Application on an Android device:</b>
 
 1. Open the 3605-final file in Android Studio.
 2. Follow the instructions within this link to build a APK file in Android Studio - https://www.educative.io/edpresso/extracting-an-apk-file-from-android-studio.
 3. Follow the instructions within this link to put the APK on an Android device - https://www.lifewire.com/install-apk-on-android-4177185.
 
-
-For Testing the API:
+<b>For Testing the API:</b>
 
 1. Open a web browser of your choice.
 2. Decide on the API call that you want to test, here is a following list of relevant API calls;
@@ -68,7 +66,7 @@ http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingpro
 * [PHP] - Used for the API
 * [Java] - Used for the Android app
 
-## Contributers for this project
+## The project team
 
 * **Hans Magnaye** 
 * **Leanne Tran** 
@@ -80,5 +78,5 @@ http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingpro
 ## Acknowledgments
 
 * Special thanks to Hardware & General for giving us this opportunity.
-* Thank you to Yenni Tim and Sandeep Mysore Seshadrinath for their guidence thoughout the project.
+* Thank you to Yenni Tim and Sandeep Mysore Seshadrinath for their guidance thoughout the project.
 * Thank you to Belal Khan at www.simplifiedcoding.net for providing the starter code for the PHP API.
