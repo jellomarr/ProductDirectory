@@ -81,4 +81,4 @@ http://group5hngdatabase.000webhostapp.com/Api.php?apicall=getproductsknowingpro
 
 * Special thanks to Hardware & General for giving us this opportunity.
 * Thank you to Yenni Tim and Sandeep Mysore Seshadrinath for their guidence thoughout the project.
-* Thank you to Belal Khan at www.simplifiedcoding.net for providing the starter code for the PHP API
+* Thank you to Belal Khan at www.simplifiedcoding.net for providing the starter code for the PHP API.
